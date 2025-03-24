@@ -1,13 +1,16 @@
 from flask import Flask,render_template,request,redirect
 from prediction_pipline import preprocessing,vectorizer,get_Prediction
 
+# Initialize Flask application
 app = Flask(__name__)
 
+# Global variables to hold reviews and sentiment counts
 data = dict()
 reviews=[]
 positive = 0
 negative = 0
 
+# Route for the index page (GET request)
 @app.route("/")
 def index():
     data['reviews']=reviews
@@ -16,6 +19,7 @@ def index():
 
     return render_template('index.html',data=data)
 
+# Route to handle review submission 
 @app.route("/",methods=['post'])
 def my_post():
     text = request.form['text']

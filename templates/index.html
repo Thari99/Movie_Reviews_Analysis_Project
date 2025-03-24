@@ -1,39 +1,43 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Movies</title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{url_for('static',filename='CSS/main.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='CSS/main.css')}}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <body>
-        <div class="left">
-            <img src="../static/img/img1.jpeg" >
-
-        </div>
-        <div class="right">
-            <label for="">Positive Reviews : {{ data.positive}}</label>
-            <label for="">Negative Reviews : {{ data.negative}}</label>
+        <div class="container">
+            <h3>Top Gun (2022)</h3>
+            <div class="movie-image">
+                <img src="../static/img/2.jpg" alt="Top Gun Movie Poster">
+            </div>
+            <div class="info">
+                <p>Positive Reviews: {{ data.positive }}</p>
+                <p>Negative Reviews: {{ data.negative }}</p>
+            </div>
             <div class="comment">
                 <form method="post">
-                    <textarea name="text"></textarea>
-                    <input type="submit">
+                    <textarea name="text" placeholder="Write your review here..."></textarea>
+                    <input type="submit" value="Submit Review">
                 </form>
             </div>
-            <div class=reviews>
-                {% for review in data.reviews%}
+            <div class="reviews">
+                {% for review in data.reviews %}
                 <hr/>
-                    <div class="display">
-                        <span>{{review}}</span>
-                    </div>
-                {%endfor%}
+                <div class="display">
+                    <span>{{ review }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="movie-details">
+                <p>The story involves Maverick confronting his past while training a group of younger Top Gun graduates, including the son of his deceased best friend, for a dangerous mission.</p>
+                <p><strong>Director:</strong> Joseph Kosinski</p>
+                <p><strong>Writers:</strong> Jim Cash, Jack Epps Jr., Peter Craig</p>
+                <p><strong>Stars:</strong> Tom Cruise, Jennifer Connelly, Miles Teller</p>
             </div>
         </div>
-        
-        <script src="" async defer></script>
     </body>
 </html>

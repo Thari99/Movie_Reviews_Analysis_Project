@@ -20,7 +20,7 @@ with open('static/model/corpora/stopwords/english','r') as file:
 vocab = pd.read_csv('static/model/vocabulary.txt', header=None)
 tokens = vocab[0].tolist()
 
-#remove punctuation
+#remove unnessary data
 def remove_symbols(text):
     for punctuation in string.punctuation:
         text = text.replace(punctuation, '')
